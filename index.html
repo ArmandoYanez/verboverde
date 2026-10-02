@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VerboVerde · Verbos irregulares en inglés</title>
+  <meta name="description" content="Estudia y practica los verbos irregulares en inglés del Libro 1 (Libro Verde): tabla, flashcards, ejercicios y seguimiento de tu progreso.">
+  <meta name="theme-color" content="#47AD4B">
+
+  <!-- Compartir en redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VerboVerde · Verbos irregulares en inglés">
+  <meta property="og:description" content="Tabla de estudio, flashcards y ejercicios para dominar los verbos irregulares del Libro Verde.">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="VerboVerde · Verbos irregulares en inglés">
+  <meta name="twitter:description" content="Tabla de estudio, flashcards y ejercicios para dominar los verbos irregulares del Libro Verde.">
+
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <header class="encabezado">
+    <div class="encabezado-inner">
+      <a class="marca" href="#estudio" aria-label="VerboVerde, inicio">
+        <svg class="marca-icono" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M6 8a6 6 0 0 1 6-6h16a6 6 0 0 1 6 6v14a6 6 0 0 1-6 6H17l-7 7v-7h0a4 4 0 0 1-4-4z" fill="#FFFFFF"/>
+          <path d="M12 23c0-7.5 4.8-12.2 13-12.6.2 8-4.6 12.6-13 12.6z" fill="#47AD4B"/>
+          <path d="M12.6 22.4 20.6 14.4" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <span class="marca-texto">Verbo<strong>Verde</strong></span>
+      </a>
+
+      <nav class="nav" aria-label="Secciones">
+        <a class="nav-link" href="#estudio" data-ruta="estudio">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h16" /></svg>
+          <span>Tabla</span>
+        </a>
+        <a class="nav-link" href="#tarjetas" data-ruta="tarjetas">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="14" height="14" rx="2"/><path d="M7 3h12a2 2 0 0 1 2 2v12"/></svg>
+          <span>Tarjetas</span>
+        </a>
+        <a class="nav-link" href="#ejercicios" data-ruta="ejercicios">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>
+          <span>Ejercicios</span>
+        </a>
+        <a class="nav-link" href="#progreso" data-ruta="progreso">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          <span>Progreso</span>
+        </a>
+      </nav>
+
+      <div class="racha-mini" title="Días seguidos estudiando">
+        <span aria-hidden="true">🔥</span> <span id="racha-mini">0</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="contenido">
+
+    <!-- ============ 1. TABLA DE ESTUDIO ============ -->
+    <section id="vista-estudio" class="vista" data-vista="estudio" aria-labelledby="t-estudio">
+      <div class="vista-cabecera">
+        <h1 id="t-estudio">Tabla de estudio</h1>
+        <p>Los <span id="total-verbos">0</span> verbos irregulares del Libro 1. Oculta columnas y toca cada casilla para revisar si te la sabías.</p>
+      </div>
+
+      <div class="panel herramientas">
+        <label class="buscador">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <span class="sr-only">Buscar verbo</span>
+          <input type="search" id="buscar" placeholder="Buscar en inglés o español…" autocomplete="off">
+        </label>
+
+        <div class="toggles" role="group" aria-label="Ocultar columnas">
+          <span class="toggles-label">Ocultar:</span>
+          <button type="button" class="chip" data-col="pasado" aria-pressed="false">Pasado</button>
+          <button type="button" class="chip" data-col="participio" aria-pressed="false">Participio</button>
+          <button type="button" class="chip" data-col="gerundio" aria-pressed="false">Gerundio</button>
+          <button type="button" class="chip" data-col="es" aria-pressed="false">Significado</button>
+          <button type="button" class="chip chip-sec" id="revelar-todo">Mostrar todo</button>
+        </div>
+      </div>
+
+      <div class="tabla-wrap">
+        <table class="tabla" id="tabla">
+          <thead>
+            <tr>
+              <th scope="col">Infinitivo</th>
+              <th scope="col" data-col="pasado">Pasado</th>
+              <th scope="col" data-col="participio">Participio</th>
+              <th scope="col" data-col="gerundio">Gerundio</th>
+              <th scope="col" data-col="es">Significado</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-cuerpo"></tbody>
+        </table>
+        <p class="vacio" id="tabla-vacia" hidden>No encontramos ese verbo. Prueba con otra palabra.</p>
+      </div>
+      <p class="leyenda">
+        <span class="punto punto-dominado"></span> Dominado
+        <span class="punto punto-dificil"></span> Difícil
+      </p>
+    </section>
+
+    <!-- ============ 2. FLASHCARDS ============ -->
+    <section id="vista-tarjetas" class="vista" data-vista="tarjetas" aria-labelledby="t-tarjetas" hidden>
+      <div class="vista-cabecera">
+        <h1 id="t-tarjetas">Flashcards</h1>
+        <p>Toca la tarjeta para voltearla. Marca «Me la sé» o «Repasar»: las que repases volverán a salir.</p>
+      </div>
+
+      <div class="panel controles">
+        <label class="campo">
+          <span>Mazo</span>
+          <select id="fc-mazo">
+            <option value="todos">Todos los verbos</option>
+            <option value="pendientes">Sin dominar</option>
+            <option value="dificiles">Solo difíciles</option>
+          </select>
+        </label>
+        <label class="campo">
+          <span>Mostrar primero</span>
+          <select id="fc-dir">
+            <option value="en">Inglés</option>
+            <option value="es">Español</option>
+          </select>
+        </label>
+        <button type="button" class="btn btn-sec" id="fc-barajar">Barajar</button>
+      </div>
+
+      <div class="fc-zona" id="fc-zona">
+        <div class="fc-estado">
+          <span id="fc-contador">1 / 1</span>
+          <div class="barra"><div class="barra-relleno" id="fc-barra"></div></div>
+        </div>
+
+        <div class="flashcard" id="flashcard" tabindex="0" role="button" aria-label="Voltear tarjeta">
+          <div class="fc-inner">
+            <div class="fc-cara fc-frente" id="fc-frente"></div>
+            <div class="fc-cara fc-reverso" id="fc-reverso"></div>
+          </div>
+        </div>
+        <p class="pista">Toca la tarjeta o presiona <kbd>Espacio</kbd> para voltear</p>
+
+        <div class="fc-acciones">
+          <button type="button" class="btn btn-repasar" id="fc-repasar">↻ Repasar</button>
+          <button type="button" class="btn" id="fc-sabe">✓ Me la sé</button>
+        </div>
+      </div>
+
+      <div class="panel fin" id="fc-fin" hidden>
+        <div class="fin-icono" aria-hidden="true">🌿</div>
+        <h2>¡Terminaste el mazo!</h2>
+        <p id="fc-fin-texto"></p>
+        <button type="button" class="btn" id="fc-reiniciar">Volver a empezar</button>
+      </div>
+    </section>
+
+    <!-- ============ 3. EJERCICIOS ============ -->
+    <section id="vista-ejercicios" class="vista" data-vista="ejercicios" aria-labelledby="t-ejercicios" hidden>
+      <div class="vista-cabecera">
+        <h1 id="t-ejercicios">Ejercicios</h1>
+        <p>Rondas de 10 preguntas al azar. Los verbos que fallas aparecen más seguido.</p>
+      </div>
+
+      <div id="ej-inicio">
+        <div class="tipos-grid">
+          <button type="button" class="tipo-card" data-tipo="completar">
+            <span class="tipo-icono" aria-hidden="true">✍️</span>
+            <strong>Completar formas</strong>
+            <small>Escribe las formas que faltan del verbo.</small>
+          </button>
+          <button type="button" class="tipo-card" data-tipo="opcion">
+            <span class="tipo-icono" aria-hidden="true">🔘</span>
+            <strong>Opción múltiple</strong>
+            <small>Elige la forma correcta entre 4 opciones.</small>
+          </button>
+          <button type="button" class="tipo-card" data-tipo="traduccion">
+            <span class="tipo-icono" aria-hidden="true">🌎</span>
+            <strong>Traducción</strong>
+            <small>Del español al inglés, en la forma que se pida.</small>
+          </button>
+          <button type="button" class="tipo-card tipo-mixto" data-tipo="mixto">
+            <span class="tipo-icono" aria-hidden="true">🎲</span>
+            <strong>Mixto</strong>
+            <small>Un poco de todo en la misma ronda.</small>
+          </button>
+        </div>
+
+        <label class="switch">
+          <input type="checkbox" id="ej-dificiles">
+          <span class="switch-pista" aria-hidden="true"></span>
+          <span>Practicar solo mis verbos difíciles (<span id="ej-num-dif">0</span>)</span>
+        </label>
+      </div>
+
+      <div id="ej-juego" hidden>
+        <div class="ej-estado">
+          <span class="etiqueta" id="ej-tipo">Completar</span>
+          <span id="ej-contador">Pregunta 1 de 10</span>
+          <span class="ej-puntos">✓ <span id="ej-aciertos">0</span></span>
+        </div>
+        <div class="barra"><div class="barra-relleno" id="ej-barra"></div></div>
+
+        <form class="panel pregunta" id="ej-form" autocomplete="off" novalidate>
+          <div id="ej-pregunta"></div>
+          <div class="feedback" id="ej-feedback" role="status" aria-live="polite" hidden></div>
+          <div class="ej-acciones">
+            <button type="button" class="btn btn-texto" id="ej-salir">Salir</button>
+            <button type="submit" class="btn" id="ej-accion">Comprobar</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel fin" id="ej-fin" hidden>
+        <div class="fin-puntaje" id="ej-fin-puntaje">0/10</div>
+        <h2 id="ej-fin-titulo">¡Ronda terminada!</h2>
+        <p id="ej-fin-texto"></p>
+        <ul class="lista-fallos" id="ej-fin-fallos"></ul>
+        <div class="fin-botones">
+          <button type="button" class="btn" id="ej-otra">Otra ronda</button>
+          <button type="button" class="btn btn-sec" id="ej-fallos">Practicar mis fallos</button>
+          <button type="button" class="btn btn-texto" id="ej-menu">Cambiar ejercicio</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. PROGRESO ============ -->
+    <section id="vista-progreso" class="vista" data-vista="progreso" aria-labelledby="t-progreso" hidden>
+      <div class="vista-cabecera">
+        <h1 id="t-progreso">Tu progreso</h1>
+        <p>Un verbo queda <strong>dominado</strong> cuando lo aciertas 3 veces seguidas.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="stat-valor" id="p-total">0%</span>
+          <span class="stat-label">Aciertos totales</span>
+        </div>
+        <div class="stat">
+          <span class="stat-valor" id="p-racha">0</span>
+          <span class="stat-label">Días de racha 🔥</span>
+          <small id="p-mejor">Mejor: 0</small>
+        </div>
+        <div class="stat">
+          <span class="stat-valor" id="p-dominados">0</span>
+          <span class="stat-label">Verbos dominados</span>
+        </div>
+        <div class="stat">
+          <span class="stat-valor" id="p-respondidas">0</span>
+          <span class="stat-label">Respuestas</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Verbos dominados</h2>
+        <div class="barra barra-grande"><div class="barra-relleno" id="p-barra-dom"></div></div>
+        <p class="barra-texto" id="p-dom-texto">0 de 0</p>
+      </div>
+
+      <div class="panel">
+        <h2>Aciertos por tipo de ejercicio</h2>
+        <div id="p-tipos"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-cabecera">
+          <h2>Verbos difíciles</h2>
+          <button type="button" class="btn" id="p-practicar">Practicar solo estos</button>
+        </div>
+        <ul class="chips-lista" id="p-dificiles"></ul>
+        <p class="vacio" id="p-sin-dificiles">Aún no tienes verbos difíciles. ¡Sigue así! 🌱</p>
+      </div>
+
+      <div class="zona-peligro">
+        <button type="button" class="btn btn-peligro" id="p-reiniciar">Reiniciar progreso</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    VerboVerde · Verbos irregulares del Libro 1 (Libro Verde). Tu progreso se guarda solo en este navegador.
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="./js/verbos.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
